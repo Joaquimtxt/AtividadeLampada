@@ -87,10 +87,16 @@ button {
 }
 
 #mensagem-erro {
+    display : none;
     background-color: #f0abaf;
     color: red;
     padding: 10px 15px;
     margin: 15px 0px;
+}
+
+.verde{
+    background: #b6f0ab !important;
+    color: green !important;
 }
 
 label {

@@ -1,6 +1,5 @@
 var led = "ligar";
 
-document.getElementById("mensagem-erro").style.display = "none";
 
 const ligar = () => {
   let btnEnviar = document.getElementById("btnEnviar");
@@ -55,13 +54,21 @@ const validaForm = () => {
   //Validando dados
   inData == "" && (msgErro.innerHTML += "Data inválida! <br>");
   inCli == "" && (msgErro.innerHTML += "Nome inválido!<br>");
+  inCli.length < 3 && (msgErro.innerHTML += "Nome inválido!<br>");
   inFone == "" && (msgErro.innerHTML += "Telefone inválido! <br>");
   inMail == "" && (msgErro.innerHTML += "Email inválido! <br>");
+  inMail < 6 && (msgErro.innerHTML += "Email inválido! <br>");
   inProd == "" && (msgErro.innerHTML += "Produto inválido! <br>");
+  inProd < 6 && (msgErro.innerHTML += "Produto inválido! <br>");
   inQtd == "" && (msgErro.innerHTML += "Quantidade inválida! <br>");
+  inQtd <= 0 && (msgErro.innerHTML += "Quantidade inválida! <br>");
   inVal == "" && (msgErro.innerHTML += "Valor inválido! <br>");
+  inVal <= 0 && (msgErro.innerHTML += "Valor inválido! <br>");
 
-msgErro.innerText == ""? (msgErro.style.display = "none") : (msgErro.style.display = "block")
+  //Mostrar /ocultar erro
+msgErro.innerText == ""? ((msgErro.style.display = "none"), (msgErro.innerText = "enviado!")): (msgErro.style.display = "block")(msgErro.classList.remove("verde"));;
+msgErro.innerText == "enviado!" && ((msgErro.style.display = "block"),(msgErro.innerText = "Formulário enviado com sucesso!"),
+(msgErro.classList.add("verde")));
 };
 //Atividade 4
 
